@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14-Day Exam Preparation Plan</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --dark: #34495e;
+            --light: #ecf0f1;
+            --text: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .exam-info {
+            background-color: var(--dark);
+            color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 0 8px 8px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .exam-info div {
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .exam-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .exam-info p {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
+        .syllabus {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .syllabus h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .syllabus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .syllabus-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        
+        .syllabus-item h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .syllabus-item span {
+            background-color: var(--primary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .syllabus-item ul {
+            list-style-position: inside;
+            padding-left: 10px;
+        }
+        
+        .syllabus-item li {
+            margin-bottom: 5px;
+        }
+        
+        .plan {
+            margin-top: 30px;
+        }
+        
+        .plan h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .days-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .day-card {
+            flex: 0 0 calc(50% - 10px);
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .day-card {
+                flex: 0 0 100%;
+            }
+        }
+        
+        .day-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .date {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .day-content {
+            padding: 20px;
+        }
+        
+        .session {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .session:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .session h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .time {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        
+        .session ul {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+        
+        .session li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .session li:before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .tips {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .tips h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .tip-card {
+            border-left: 4px solid var(--secondary);
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        
+        .tip-card h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+        
+        .progress-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .progress-container h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .progress-tracker {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .progress-day {
+            flex: 0 0 calc(14.28% - 10px);
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #ddd;
+            color: var(--dark);
+            font-weight: bold;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .progress-day {
+                flex: 0 0 calc(25% - 10px);
+                margin-bottom: 10px;
+            }
+        }
+        
+        .progress-day:hover::after {
+            content: attr(data-topics);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--dark);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Comprehensive Exam Preparation Plan</h1>
+            <div class="subtitle">A 14-day structured study guide to ace your exam</div>
+        </header>
+        
+        <div class="exam-info">
+            <div>
+                <h3>Exam Date</h3>
+                <p>March 31, 2025</p>
+            </div>
+            <div>
+                <h3>Days Remaining</h3>
+                <p>14 Days</p>
+            </div>
+            <div>
+                <h3>Total Marks</h3>
+                <p>50</p>
+            </div>
+        </div>
+        
+        <div class="syllabus">
+            <h2>Exam Syllabus</h2>
+            <div class="syllabus-grid">
+                <div class="syllabus-item">
+                    <h3>Verbal Aptitude <span>10 Marks</span></h3>
+                    <ul>
+                        <li>Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions, verb-noun agreement</li>
+                        <li>Basic vocabulary: words, idioms, and phrases</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-item">
+                    <h3>Quantitative Aptitude <span>20 Marks</span></h3>
+                    <ul>
+                        <li>Data interpretation: graphs, plots, maps, tables</li>
+                        <li>Basic algebra: equations, ratios, percentages, exponents</li>
+                        <li>Permutations, combinations, and series</li>
+                        <li>Mensuration and geometry</li>
+                        <li>Determinant and Matrices</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-item">
+                    <h3>Flow Chart and Logic <span>10 Marks</span></h3>
+                    <ul>
+                        <li>Flowchart basics</li>
+                        <li>Algorithm fundamentals</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-item">
+                    <h3>Statistics <span>10 Marks</span></h3>
+                    <ul>
+                        <li>Basic concepts</li>
+                        <li>Mean, median, standard deviation</li>
+                        <li>Simple tests</li>
+                        <li>Elementary statistics and probability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="progress-container">
+            <h2>Progress Tracker</h2>
+            <div class="progress-tracker">
+                <div class="progress-day" style="background-color: #3498db; color: white;" data-topics="Verbal Aptitude, Data Interpretation">1</div>
+                <div class="progress-day" style="background-color: #3498db; color: white;" data-topics="Basic Algebra, English Grammar">2</div>
+                <div class="progress-day" style="background-color: #3498db; color: white;" data-topics="Statistics Basics, Vocabulary">3</div>
+                <div class="progress-day" style="background-color: #3498db; color: white;" data-topics="Geometry, Flowcharts">4</div>
+                <div class="progress-day" style="background-color: #3498db; color: white;" data-topics="Matrices, Algorithms">5</div>
+                <div class="progress-day" style="background-color: #3498db; color: white;" data-topics="Probability, Grammar Review">6</div>
+                <div class="progress-day" style="background-color: #3498db; color: white;" data-topics="Series, Mock Test 1">7</div>
+                <div class="progress-day" style="background-color: #3498db; color: white;" data-topics="Statistics Tests, Data Interpretation">8</div>
+                <div class="progress-day" style="background-color: #3498db; color: white;" data-topics="Permutations & Combinations, Logic">9</div>
+                <div class="progress-day" style="background-color: #3498db; color: white;" data-topics="Algorithm Practice, Probability">10</div>
+                <div class="progress-day" style="background-color: #3498db; color: white;" data-topics="Weak Areas, Mock Test 2">11</div>
+                <div class="progress-day" style="background-color: #3498db; color: white;" data-topics="Full Revision - Part 1">12</div>
+                <div class="progress-day" style="background-color: #3498db; color: white;" data-topics="Full Revision - Part 2">13</div>
+                <div class="progress-day" style="background-color: #3498db; color: white;" data-topics="Final Mock Test, Relaxation">14</div>
+            </div>
+        </div>
+        
+        <div class="plan">
+            <h2>14-Day Study Plan</h2>
+            <div class="days-container">
+                <div class="day-card">
+                    <div class="day-header">
+                        Day 1 <span class="date">March 18</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="session">
+                            <h4>Morning Session <span class="time">9:00 AM - 12:00 PM</span></h4>
+                            <ul>
+                                <li>Introduction to Verbal Aptitude</li>
+                                <li>Basic English tenses and articles</li>
+                                <li>Practice exercises on tenses</li>
+                            </ul>
